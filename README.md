@@ -1,1 +1,2 @@
-# beecrowd
+# Beecrowd
+Trata-se de uma questão de estudo voltada ao desenvolvimento do raciocínio algorítmico. O objetivo final é concluir integralmente os exercícios da plataforma Beecrowd e documentar detalhadamente o processo adotado para alcançar esse resultado.
