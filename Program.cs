@@ -10,17 +10,40 @@ namespace beecrowd
         }
         public static void Menu()
         {
-            System.Console.Write("Digite o número do exercício da atividade da Beecrowd (de 1000 a 3486): ");
-            int op = int.Parse(Console.ReadLine() ?? "0");
+            System.Console.Write("Digite o número do exercício da atividade da Beecrowd (de 1000 a 3486 ou 0 para sair): ");
+            string input = Console.ReadLine() ?? "";
 
-            switch (op)
+            if (input == "0")
             {
-                case 1:
-                    Ex_1000();
-                    break;
-                default:
-                    break;
+                System.Console.WriteLine("Programa encerrado.");
+                return; // Encerra o programa
             }
+
+            string nomeDoMetodo = $"Ex_{input}";
+
+            var metodo = typeof(Program).GetMethod(nomeDoMetodo, System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public); //typeof(Program).GetMethod(...): procura um método chamado Ex_1001, Ex_1002, etc., dentro da própria classe Program
+
+            if (metodo != null)
+            {
+                metodo.Invoke(null, null); // Executa o método estático // Invoke(null, null): executa esse método
+            }
+            else
+            {
+                Console.WriteLine("Exercício não encontrado.");
+                Menu(); // Volta ao menu
+            }
+
+
+            // int op = int.Parse(Console.ReadLine() ?? "0");
+
+            // switch (op)
+            // {
+            //     case 1:
+            //         Ex_1000();
+            //         break;
+            //     default:
+            //         break;
+            // }
         }
         public static void Ex_1000()
         {
@@ -177,6 +200,76 @@ namespace beecrowd
             System.Console.WriteLine($"RETANGULO: {retangulo.ToString("F3")}");
 
             Menu();
+        }
+        public static void Ex_1013()
+        {
+            string[] input;
+
+            input = (Console.ReadLine() ?? "").Split(' ');
+            double primeiroNumero = double.Parse(input[0]);
+            double segundoNumero = double.Parse(input[1]);
+            double terceiroNumero = double.Parse(input[2]);
+
+            double maiorNumero = primeiroNumero;
+
+            if (maiorNumero < segundoNumero)
+            {
+                maiorNumero = segundoNumero;
+            }
+            if (maiorNumero < terceiroNumero)
+            {
+                maiorNumero = terceiroNumero;
+            }
+
+            System.Console.WriteLine($"{maiorNumero} eh o maior");
+
+            Menu();
+        }
+        public static void Ex_1014()
+        {
+            double km = double.Parse(Console.ReadLine() ?? "");
+            double litros = double.Parse(Console.ReadLine() ?? "");
+
+            double valorFinal = km / litros;
+
+            System.Console.WriteLine($"{valorFinal.ToString("F3")} km/l");
+        }
+        public static void Ex_1015()
+        {
+            string[] input;
+
+            input = (Console.ReadLine() ?? "").Split(' ');
+            double x1 = double.Parse(input[0]);
+            double x2 = double.Parse(input[1]);
+
+            input = (Console.ReadLine() ?? "").Split(' ');
+            double y1 = double.Parse(input[0]);
+            double y2 = double.Parse(input[1]);
+
+            double somaX = Math.Pow((x1 - y1), 2);
+            double somaY = Math.Pow((x2 - y2), 2);
+
+            double valorFinal = Math.Sqrt((somaX + somaY));
+
+            System.Console.WriteLine($"{valorFinal.ToString("F4")}");
+
+            Menu();
+        }
+        public static void Ex_1016()
+        {
+            int km = int.Parse(Console.ReadLine() ?? "");
+            int tempo = (km * 60) / 30;
+
+            System.Console.WriteLine($"{tempo} minutos");
+        }
+        public static void Ex_1017()
+        {
+            int horas = int.Parse(Console.ReadLine() ?? "");
+            int km = int.Parse(Console.ReadLine() ?? "");
+
+            double teste = ((km * horas) / 12.0);
+
+            System.Console.WriteLine($"{teste.ToString("F3")}");
         }
     }
 }
