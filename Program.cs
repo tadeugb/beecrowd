@@ -261,6 +261,7 @@ namespace beecrowd
             int tempo = (km * 60) / 30;
 
             System.Console.WriteLine($"{tempo} minutos");
+            Menu();
         }
         public static void Ex_1017()
         {
@@ -270,6 +271,31 @@ namespace beecrowd
             double teste = ((km * horas) / 12.0);
 
             System.Console.WriteLine($"{teste.ToString("F3")}");
+            Menu();
+        }
+        public static void Ex_1018()
+        {
+            int dinheiro = int.Parse(Console.ReadLine() ?? "");
+
+            int nota100 = dinheiro / 100; //12
+            int nota50 = (dinheiro - (nota100 * 100)) / 50; // 1257 - 1200 = 57 / 50 = 1
+            int nota20 = (dinheiro - (nota50 * 50)) / 20;
+            int nota10 = (dinheiro - (nota20 * 20)) / 10;
+            int nota05 = (dinheiro - (nota10 * 10)) / 5;
+            int nota02 = (dinheiro - (nota05 * 5)) / 2;
+            int nota01 = (dinheiro - (nota02 * 2)) / 1;
+
+            System.Console.WriteLine($"{dinheiro}");
+            System.Console.WriteLine($"{nota100} nota(s) de R$ 100,00");
+            System.Console.WriteLine($"{nota50} nota(s) de R$ 50,00");
+            System.Console.WriteLine($"{nota20} nota(s) de R$ 20,00");
+            System.Console.WriteLine($"{nota10} nota(s) de R$ 10,00");
+            System.Console.WriteLine($"{nota05} nota(s) de R$ 05,00");
+            System.Console.WriteLine($"{nota02} nota(s) de R$ 2,00");
+            System.Console.WriteLine($"{nota01} nota(s) de R$ 1,00");
+
+            Menu();
+
         }
     }
 }
