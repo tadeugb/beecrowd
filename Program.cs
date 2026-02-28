@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace beecrowd
 {
@@ -277,13 +278,31 @@ namespace beecrowd
         {
             int dinheiro = int.Parse(Console.ReadLine() ?? "");
 
-            int nota100 = dinheiro / 100; //12
-            int nota50 = (dinheiro - (nota100 * 100)) / 50; // 1257 - 1200 = 57 / 50 = 1
-            int nota20 = (dinheiro - (nota50 * 50)) / 20;
-            int nota10 = (dinheiro - (nota20 * 20)) / 10;
-            int nota05 = (dinheiro - (nota10 * 10)) / 5;
-            int nota02 = (dinheiro - (nota05 * 5)) / 2;
-            int nota01 = (dinheiro - (nota02 * 2)) / 1;
+            int nota100 = dinheiro / 100;
+            int resto100 = dinheiro % 100;
+
+            int nota50 = resto100 / 50;
+            int resto50 = resto100 % 50;
+
+            int nota20 = resto50 / 20;
+            int resto20 = resto50 % 20;
+
+            int nota10 = resto20 / 10;
+            int resto10 = resto20 % 10;
+
+            int nota05 = resto10 / 5;
+            int resto05 = resto10 % 5;
+
+            int nota02 = resto05 / 2;
+            int nota01 = resto05 % 2;
+
+            // int nota100 = dinheiro / 100;
+            // int nota50 = (dinheiro - (nota100 * 100)) / 50;
+            // int nota20 = (dinheiro - (nota100 * 100 + nota50 * 50)) / 20;
+            // int nota10 = (dinheiro - (nota100 * 100 + nota50 * 50 + nota20 * 20)) / 10;
+            // int nota05 = (dinheiro - (nota100 * 100 + nota50 * 50 + nota20 * 20 + nota10 * 10)) / 5;
+            // int nota02 = (dinheiro - (nota100 * 100 + nota50 * 50 + nota20 * 20 + nota10 * 10 + nota05 * 5)) / 2;
+            // int nota01 = (dinheiro - (nota100 * 100 + nota50 * 50 + nota20 * 20 + nota10 * 10 + nota05 * 5 + nota02 * 2)) / 1;
 
             System.Console.WriteLine($"{dinheiro}");
             System.Console.WriteLine($"{nota100} nota(s) de R$ 100,00");
@@ -295,7 +314,20 @@ namespace beecrowd
             System.Console.WriteLine($"{nota01} nota(s) de R$ 1,00");
 
             Menu();
+        }
+        public static void Ex_1019()
+        {
+            int segundos = int.Parse(Console.ReadLine() ?? "");
 
+            int horas = segundos / 3600;
+            int restosegundos = segundos % 3600;
+
+            int minutos = restosegundos / 60;
+            restosegundos = restosegundos % 60;
+
+            System.Console.WriteLine($"{horas}:{minutos}:{restosegundos}");
+
+            Menu();
         }
     }
 }
