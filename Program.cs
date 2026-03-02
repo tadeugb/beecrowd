@@ -309,7 +309,7 @@ namespace beecrowd
             System.Console.WriteLine($"{nota50} nota(s) de R$ 50,00");
             System.Console.WriteLine($"{nota20} nota(s) de R$ 20,00");
             System.Console.WriteLine($"{nota10} nota(s) de R$ 10,00");
-            System.Console.WriteLine($"{nota05} nota(s) de R$ 05,00");
+            System.Console.WriteLine($"{nota05} nota(s) de R$ 5,00");
             System.Console.WriteLine($"{nota02} nota(s) de R$ 2,00");
             System.Console.WriteLine($"{nota01} nota(s) de R$ 1,00");
 
