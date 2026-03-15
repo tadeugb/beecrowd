@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace beecrowd
 {
@@ -328,6 +329,46 @@ namespace beecrowd
             System.Console.WriteLine($"{horas}:{minutos}:{restosegundos}");
 
             Menu();
+        }
+
+        public static void Ex_1020()
+        {
+            int idade = int.Parse(Console.ReadLine() ?? "");
+
+            int anos = idade / 365;
+            int restoAnos = idade % 365;
+
+            int meses = restoAnos / 30;
+            int dias = restoAnos % 30;
+
+            System.Console.WriteLine($"{anos} ano(s)");
+            System.Console.WriteLine($"{meses} mes(es)");
+            System.Console.WriteLine($"{dias} dia(s)");
+
+            Menu();
+        }
+
+        public static void Ex_1021()
+        {
+            double notas = double.Parse(Console.ReadLine() ?? "");
+
+            double notas100 = notas / 100;
+            double resto100 = notas % 100;
+
+            System.Console.WriteLine("NOTAS:");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 100.00");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 50.00");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 20.00");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 5.00");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 2.00");
+
+            System.Console.WriteLine("MOEDAS:");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 1.00");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 0.50");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 0.25");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 0.10");
+            System.Console.WriteLine($"{(int)notas100} nota(s) de R$ 0.05");
+
         }
     }
 }
